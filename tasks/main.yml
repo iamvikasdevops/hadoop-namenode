@@ -1,25 +1,27 @@
 ---
 # tasks file for hadoop_master
 
-- copy:
+- name: For copying Hadoop and Jdk rpm file to Namenode machine
+  copy:
     src: files/
     dest: /root/
-- package_facts:
-        manager: "auto"
- 
- 
-- yum:
+- name: For storing and getting facts about installed packages
+  package_facts:
+        manager: "auto" 
+- name: For installing jdk
+  yum:
      name: /root/jdk-8u171-linux-x64.rpm
      state: present
-
-
-- command: "rpm -ivh /root/hadoop-1.2.1-1.x86_64.rpm --force"
+- name: For installing Hadoop software
+  command: "rpm -ivh /root/hadoop-1.2.1-1.x86_64.rpm --force"
   when: "'hadoop' not in ansible_facts.packages"
 
-- file:
+- name: For creating dirrectory in namenode machine
+  file:
        path: /root/{{dir_namenode}}
        state: directory
-- blockinfile:
+- name: For configuring hadoop's hdfs-site.xml file
+  blockinfile:
         path: /etc/hadoop/hdfs-site.xml
         insertafter: "<configuration>"
         block: |    
@@ -27,7 +29,8 @@
             <name>dfs.name.dir</name>
             <value>{{dir_namenode}}</value>
             </property>
-- blockinfile:
+- name: For Configuring core-site.xml file of hadoop
+  blockinfile:
         path: /etc/hadoop/core-site.xml
         insertafter: "<configuration>"
         block: |
@@ -35,14 +38,18 @@
             <name>fs.default.name</name>
             <value>hdfs://0.0.0.0:9001</value>
             </property>
-- command: "jps"
+- name: For getting hadoop namenode started or not
+  command: "jps"
   register: x
-- debug:
+- name: For Printing Jps command output
+  debug:
         var: x['stdout']
-- command: "echo y | hadoop namenode -format "
+- name: Command for formatting namenode folder
+  command: "echo y | hadoop namenode -format "
   when: "'NameNode' not in x['stdout']"
   ignore_errors: true
-- command: "hadoop-daemon.sh start namenode"
+- name: command for starting namenode
+  command: "hadoop-daemon.sh start namenode"
   when: "'NameNode' not in x['stdout']"
 
 

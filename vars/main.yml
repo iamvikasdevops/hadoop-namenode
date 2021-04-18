@@ -1,4 +1,3 @@
 ---
 # vars file for hadoop_master
-
 dir_namenode: /nn1

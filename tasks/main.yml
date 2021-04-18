@@ -17,7 +17,7 @@
 
 - name: For creating dirrectory in namenode machine
   file:
-       path: /root/{{dir_namenode}}
+       path: /root/{{ dir_namenode }}
        state: directory
 - name: For configuring hadoop's hdfs-site.xml file
   blockinfile:
@@ -26,7 +26,7 @@
         block: |    
             <property>
             <name>dfs.name.dir</name>
-            <value>{{dir_namenode}}</value>
+            <value>{{ dir_namenode }}</value>
             </property>
 - name: For Configuring core-site.xml file of hadoop
   blockinfile:

@@ -1,6 +1,5 @@
 ---
 # tasks file for hadoop_master
-
 - name: For copying Hadoop and Jdk rpm file to Namenode machine
   copy:
     src: files/
@@ -51,5 +50,3 @@
 - name: command for starting namenode
   command: "hadoop-daemon.sh start namenode"
   when: "'NameNode' not in x['stdout']"
-
-

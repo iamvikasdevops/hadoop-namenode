@@ -1,8 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
-
+This role will guide you or let you configuring hadoop Namenode on the top of Amazon Linux, RedhatOS, CentOS.
 Requirements
 ------------
 
@@ -38,5 +37,5 @@ BSD
 Author Information
 ------------------
 
-Author: Vikash Agrawal
-connect with me on [LinkedIn](https://www.linkedin.com/in/vikash-agrawal/)
+- Author: Vikash Agrawal
+- connect with me on [LinkedIn](https://www.linkedin.com/in/vikash-agrawal/)

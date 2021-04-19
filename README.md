@@ -9,7 +9,9 @@ Requirements
 I have used java or jdk 1.8.0 and hadoop 1.2.1 you can get both these rpm files from here:-
 - [Jdk 1.8.0](https://drive.google.com/file/d/17UWQNVdBdGlyualwWX4Cc96KyZhD-lxz/view?usp=sharing)
 - [hadoop 1.2.1](https://drive.google.com/file/d/1541gbFeGZZJ5k9Qx65D04lpeNBw87rM5/view?usp=sharing)
+
 After Downloading put both files in files folder of role
+
 Role Variables
 --------------
 Set variable for creating folder that you want to use in Namenode in role's vars folder I have assign folder name as ***nn1*** to dir_namenode(dir_namenode: nn1)

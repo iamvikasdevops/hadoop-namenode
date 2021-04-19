@@ -1,7 +1,7 @@
 Role Name
 =========
 
-This role will guide you or let you configuring hadoop Namenode on the top of Amazon Linux, RedhatOS, CentOS.
+This role will guide you or let you know how to configure hadoop Namenode on the top of Amazon Linux or RedhatOS or CentOS.
 Requirements
 ------------
 
